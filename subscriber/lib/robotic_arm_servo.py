@@ -19,8 +19,8 @@ class RoboticArmServo(Servo):
     The servo will only move if the direction is valid.
 
     :param pin: The pin that the servo is connected to.
-    :param angle_min: The minimum angle that the servo can be set to.
-    :param angle_max: The maximum angle that the servo can be set to.
+    :param angle_min: The minimum angle that the servo can be set to in the arm.
+    :param angle_max: The maximum angle that the servo can be set to in the arm.
     :param increment: The increment that the servo will be moved by.
     :param axis: The axis that the servo will be moved on.
     :param angle: The initial angle that the servo will be set to.

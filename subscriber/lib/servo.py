@@ -24,8 +24,6 @@ class Servo:
         self.servo = machine.PWM(self.pin, freq=50)
         self.duty_min = duty_min
         self.duty_max = duty_max
-        self.angle_min = 0
-        self.angle_max = 180
         self.angle = angle
         self.set_angle(angle)
 
@@ -41,11 +39,13 @@ class Servo:
         :param angle: The angle to be converted.
         :returns: The duty cycle that corresponds to the specified angle.
         """
-        angle_range = self.angle_max - self.angle_min
+        angle_min = 0
+        angle_max = 180
+        angle_range = angle_max - angle_min
         duty_range = self.duty_max - self.duty_min
 
         return int(
-            (((angle - self.angle_min) * duty_range) / angle_range) + self.duty_min
+            (((angle - angle_min) * duty_range) / angle_range) + self.duty_min
         )
 
     def sweep(self, new_angle: int, delay: float = 0.005):
