@@ -17,7 +17,7 @@ BASE_MIN = 0
 BASE_MAX = 180
 
 LEFT_PIN = 19
-LEFT_MIN = 100
+LEFT_MIN = 90
 LEFT_MAX = 180
 
 CLAW_PIN = 21
@@ -30,7 +30,7 @@ RIGHT_MAX = 180
 
 
 base = RoboticArmServo(BASE_PIN, BASE_MIN, BASE_MAX, 10, "X", 0)
-left = RoboticArmServo(LEFT_PIN, LEFT_MIN, LEFT_MAX, 10, "Y", 140)
+left = RoboticArmServo(LEFT_PIN, LEFT_MIN, LEFT_MAX, 10, "Y", 130)
 claw = RoboticArmServo(CLAW_PIN, CLAW_MIN, CLAW_MAX, 5, "X", 25)
 right = RoboticArmServo(RIGHT_PIN, RIGHT_MIN, RIGHT_MAX, 10, "Y", 90)
 
@@ -57,4 +57,5 @@ while True:
         client.subscribe(b"joysticks_data")
         client.wait_msg()
     except Exception:
+        print("Failed to receive message, disconnecting.")
         client.disconnect()
